@@ -1,0 +1,163 @@
+---
+import { events } from '../data/portfolio';
+import { withBase } from '../utils/paths';
+
+const bentoSpans = ['md:col-span-7', 'md:col-span-5', 'md:col-span-5', 'md:col-span-7'];
+---
+
+<section id="events" class="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+  <span id="recently" class="sr-only">Recently</span>
+
+  <div data-reveal>
+    <p class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-[var(--accent)]">
+      Moments
+    </p>
+    <h2 class="font-display mt-3 text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-5xl">
+      Rooms &amp; Hackathons
+    </h2>
+  </div>
+
+  <!-- Asymmetric 12-Column Visual Bento Grid -->
+  <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-12">
+    {
+      events.map((event, index) => {
+        const dialogId = `dialog-event-${event.id}`;
+        const coverPhoto = event.photos[0];
+        const colSpan = bentoSpans[index % bentoSpans.length];
+        const badgeLabel =
+          event.badge === 'Hackathon' ? 'Hackathon Finalist' : event.badge;
+
+        return (
+          <button
+            type="button"
+            data-reveal
+            style={`--reveal-delay: ${index * 80}ms;`}
+            {...({ command: 'show-modal', commandfor: dialogId } as any)}
+            class:list={[
+              'parallax-wrap cyber-scan group relative aspect-[16/10] w-full overflow-clip rounded-[var(--card-radius)] border border-[var(--border-hairline)] bg-[var(--bg-subtle)] text-left transition-colors duration-300 hover:border-[var(--border-hover)]',
+              colSpan,
+            ]}
+          >
+            <div class="parallax-layer h-full w-full">
+              <img
+                src={withBase(coverPhoto.src)}
+                alt={coverPhoto.caption}
+                class="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+
+            <div
+              aria-hidden="true"
+              class="pointer-events-none absolute inset-0"
+              style="background: linear-gradient(180deg, rgba(7,9,19,0.06) 15%, rgba(7,9,19,0.68) 68%, rgba(7,9,19,0.92) 100%);"
+            />
+
+            <div class="absolute inset-x-0 bottom-0 z-10 p-6 sm:p-7">
+              <div class="flex items-center justify-between gap-2 font-mono text-[11px] uppercase tracking-wider text-slate-300">
+                <span>
+                  {badgeLabel} &middot; {event.date}
+                </span>
+                <span class="font-mono text-[11px] text-white/90 transition-transform duration-300 group-hover:translate-x-0.5">
+                  {event.photos.length} photos &nearr;
+                </span>
+              </div>
+
+              <h3 class="font-display mt-2 text-xl font-bold tracking-tight text-white sm:text-2xl">
+                {event.title}
+              </h3>
+
+              <p class="mt-1.5 line-clamp-1 text-sm text-slate-300/90 transition-opacity duration-300 group-hover:text-white">
+                {event.story}
+              </p>
+            </div>
+          </button>
+        );
+      })
+    }
+  </div>
+
+  <!-- Native Event Photo Reel Dialogs -->
+  {
+    events.map((event) => {
+      const dialogId = `dialog-event-${event.id}`;
+      const dialogTitleId = `${dialogId}-title`;
+      const coverPhoto = event.photos[0];
+
+      return (
+        <dialog
+          id={dialogId}
+          data-lenis-prevent
+          aria-labelledby={dialogTitleId}
+          {...({ closedby: 'any' } as any)}
+        >
+          <div class="flex flex-col" data-photo-reel>
+            <div class="flex items-start justify-between gap-4 border-b border-[var(--border-hairline)] p-5 sm:px-7">
+              <div>
+                <p class="font-mono text-[11px] font-semibold uppercase tracking-wider text-[var(--accent)]">
+                  {event.date} &middot; {event.location}
+                </p>
+                <h3
+                  id={dialogTitleId}
+                  class="font-display mt-1 text-2xl font-bold tracking-tight text-[var(--text-primary)]"
+                >
+                  {event.title}
+                </h3>
+              </div>
+
+              <button
+                type="button"
+                aria-label="Close event photo reel"
+                {...({ command: 'close', commandfor: dialogId } as any)}
+                class="inline-flex h-8 w-8 shrink-0 items-center justify-center font-mono text-base text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] cursor-pointer"
+              >
+                &times;
+              </button>
+            </div>
+
+            <div class="space-y-5 overflow-y-auto p-5 sm:p-7">
+              <figure class="overflow-hidden rounded-2xl border border-[var(--border-hairline)] bg-[var(--bg-subtle)]">
+                <img
+                  data-reel-img
+                  src={withBase(coverPhoto.src)}
+                  alt={coverPhoto.caption}
+                  class="aspect-[16/10] w-full object-cover"
+                />
+                <figcaption
+                  data-reel-caption
+                  class="border-t border-[var(--border-hairline)] bg-[var(--bg-elevated)] px-4 py-2.5 font-mono text-xs text-[var(--text-muted)]"
+                >
+                  {coverPhoto.caption}
+                </figcaption>
+              </figure>
+
+              <div class="flex flex-wrap gap-4 border-b border-[var(--border-hairline)] pb-1" role="group" aria-label="Switch event photo">
+                {event.photos.map((photo, index) => (
+                  <button
+                    type="button"
+                    data-reel-btn
+                    data-photo-src={withBase(photo.src)}
+                    data-photo-caption={photo.caption}
+                    aria-pressed={index === 0 ? 'true' : 'false'}
+                    class:list={[
+                      '-mb-[5px] border-b-2 pb-1.5 font-mono text-xs transition-colors cursor-pointer',
+                      index === 0
+                        ? 'border-[var(--accent)] text-[var(--accent)]'
+                        : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]',
+                    ]}
+                  >
+                    {photo.label}
+                  </button>
+                ))}
+              </div>
+
+              <p class="text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base">
+                {event.story}
+              </p>
+            </div>
+          </div>
+        </dialog>
+      );
+    })
+  }
+</section>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bgS" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#070913" />
+      <stop offset="55%" stop-color="#11162c" />
+      <stop offset="100%" stop-color="#1c1134" />
+    </linearGradient>
+    <linearGradient id="flowS" x1="210" y1="248" x2="590" y2="248" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#f5d08a" />
+    </linearGradient>
+    <pattern id="gridS" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" stroke="#94a3b8" stroke-opacity="0.07" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgS)" />
+  <rect width="800" height="450" fill="url(#gridS)" />
+
+  <circle cx="170" cy="300" r="190" fill="#818cf8" fill-opacity="0.14" />
+  <circle cx="640" cy="140" r="180" fill="#c084fc" fill-opacity="0.14" />
+
+  <!-- Top Header -->
+  <text x="56" y="64" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" letter-spacing="2.2" fill="#7dd3fc">AI PEDAGOGICAL CHATBOT  ·  GRADE 3 SCIENCE</text>
+  <text x="56" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="700" fill="#f8fafc">SPARK+Y: Interactive Storytelling Tutor</text>
+  <line x1="56" y1="116" x2="744" y2="116" stroke="#94a3b8" stroke-opacity="0.2" stroke-width="1" />
+
+  <!-- Connectors -->
+  <path d="M250 248 H300 M500 248 H550" stroke="url(#flowS)" stroke-width="2" stroke-dasharray="5 4" />
+
+  <!-- Node 1: Next.js UI -->
+  <rect x="56" y="176" width="194" height="144" rx="12" fill="#0d1326" fill-opacity="0.92" stroke="#7dd3fc" stroke-opacity="0.55" stroke-width="1.5" />
+  <text x="74" y="206" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.4" fill="#7dd3fc">STORYTELLING UI</text>
+  <text x="74" y="232" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="600" fill="#f8fafc">React / Next.js</text>
+  <text x="74" y="258" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Tailwind CSS</text>
+  <text x="74" y="278" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Guided Story Prompts</text>
+  <text x="74" y="302" font-family="ui-monospace, monospace" font-size="10" fill="#cbd5e1">localhost:3000</text>
+
+  <!-- Node 2: FastAPI Pedagogical Engine -->
+  <rect x="300" y="166" width="200" height="164" rx="12" fill="#131630" fill-opacity="0.94" stroke="#c084fc" stroke-opacity="0.65" stroke-width="1.5" />
+  <text x="318" y="198" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.4" fill="#e9d5ff">PYTHON BACKEND</text>
+  <text x="318" y="226" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="600" fill="#f8fafc">FastAPI + Uvicorn</text>
+  <text x="318" y="252" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Lesson Guardrails</text>
+  <text x="318" y="272" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Age-Appropriate Tone</text>
+  <text x="318" y="306" font-family="ui-monospace, monospace" font-size="10" fill="#e9d5ff">REST API · Port 8000</text>
+
+  <!-- Node 3: Google Vertex AI / Gemini -->
+  <rect x="550" y="176" width="194" height="144" rx="12" fill="#0d1326" fill-opacity="0.92" stroke="#f5d08a" stroke-opacity="0.55" stroke-width="1.5" />
+  <text x="568" y="206" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.4" fill="#f5d08a">LLM INFERENCE</text>
+  <text x="568" y="232" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="600" fill="#f8fafc">Vertex AI / Gemini</text>
+  <text x="568" y="258" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Concept Narrative</text>
+  <text x="568" y="278" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Science Q&amp;A Grounding</text>
+  <text x="568" y="302" font-family="ui-monospace, monospace" font-size="10" fill="#cbd5e1">Managed Endpoint</text>
+
+  <!-- Footer -->
+  <line x1="56" y1="372" x2="744" y2="372" stroke="#94a3b8" stroke-opacity="0.2" stroke-width="1" />
+  <text x="56" y="400" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">02 / Turning Grade 3 science topics into conversational stories</text>
+  <text x="744" y="400" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#7dd3fc">2024 – 2026</text>
+</svg>

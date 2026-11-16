@@ -1,0 +1,64 @@
+<div
+  role="group"
+  aria-label="Theme aesthetic"
+  class="inline-flex items-center gap-1.5 font-mono text-[11px]"
+>
+  <button
+    type="button"
+    data-aesthetic-btn="frieren"
+    aria-pressed="true"
+    class="inline-flex items-center gap-1 font-medium cursor-pointer"
+  >
+    <span aria-hidden="true">&#10022;</span>
+    <span>Frieren</span>
+  </button>
+  <span aria-hidden="true" class="text-[var(--text-muted)]">/</span>
+  <button
+    type="button"
+    data-aesthetic-btn="cyberzone"
+    aria-pressed="false"
+    class="inline-flex items-center gap-1 font-medium cursor-pointer"
+  >
+    <span aria-hidden="true">&#9672;</span>
+    <span>Cyberzone</span>
+  </button>
+</div>
+
+<script>
+  type AestheticTheme = 'frieren' | 'cyberzone';
+
+  const aestheticButtons = document.querySelectorAll<HTMLButtonElement>('[data-aesthetic-btn]');
+
+  function normalizeAesthetic(value: string | null | undefined): AestheticTheme {
+    return value === 'cyberzone' ? 'cyberzone' : 'frieren';
+  }
+
+  function applyAesthetic(theme: AestheticTheme) {
+    document.documentElement.dataset.aesthetic = theme;
+    aestheticButtons.forEach((btn) => {
+      const isSelected = btn.dataset.aestheticBtn === theme;
+      btn.setAttribute('aria-pressed', String(isSelected));
+    });
+  }
+
+  // Sync button state immediately from <head> FOUC script resolution
+  applyAesthetic(normalizeAesthetic(document.documentElement.dataset.aesthetic));
+
+  aestheticButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const next = normalizeAesthetic(btn.dataset.aestheticBtn);
+      applyAesthetic(next);
+      try {
+        localStorage.setItem('portfolio-aesthetic', next);
+      } catch {
+        // Ignore storage errors when site data is restricted
+      }
+    });
+  });
+
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'portfolio-aesthetic') {
+      applyAesthetic(normalizeAesthetic(event.newValue));
+    }
+  });
+</script>

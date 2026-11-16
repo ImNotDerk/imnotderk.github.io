@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="ewBg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0c1222" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#311042" />
+    </linearGradient>
+    <linearGradient id="ewLine" x1="280" y1="180" x2="520" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#ewBg)" />
+  <circle cx="240" cy="300" r="180" fill="#2563eb" fill-opacity="0.2" />
+  <circle cx="580" cy="170" r="170" fill="#9333ea" fill-opacity="0.22" />
+
+  <rect x="240" y="135" width="320" height="190" rx="20" fill="#090d1a" fill-opacity="0.72" stroke="url(#ewLine)" stroke-width="1.5" />
+  <path d="M362 206 L342 222 L362 238 M438 206 L458 222 L438 238 M412 194 L388 250" stroke="url(#ewLine)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <text x="400" y="290" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#e2e8f0">COMMUNITY WORKSHOP PHOTO SLOT</text>
+  <text x="400" y="308" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">public/images/events/event-workshop.svg</text>
+</svg>

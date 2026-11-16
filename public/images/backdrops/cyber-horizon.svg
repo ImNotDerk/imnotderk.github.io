@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="cSky" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#050612" />
+      <stop offset="52%" stop-color="#110f30" />
+      <stop offset="100%" stop-color="#08142b" />
+    </linearGradient>
+    <radialGradient id="cNeonPink" cx="76%" cy="35%" r="52%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.34" />
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#050612" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="cNeonCyan" cx="22%" cy="62%" r="54%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.28" />
+      <stop offset="55%" stop-color="#2563eb" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#050612" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="gridGlow" x1="800" y1="520" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.26" />
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.04" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#cSky)" />
+  <rect width="1600" height="900" fill="url(#cNeonPink)" />
+  <rect width="1600" height="900" fill="url(#cNeonCyan)" />
+
+  <!-- Subtle arcane/cyber constellation rings -->
+  <circle cx="1180" cy="310" r="240" stroke="#c084fc" stroke-opacity="0.14" stroke-dasharray="6 10" />
+  <circle cx="1180" cy="310" r="170" stroke="#38bdf8" stroke-opacity="0.16" />
+  <circle cx="1180" cy="310" r="95" stroke="#818cf8" stroke-opacity="0.18" stroke-dasharray="3 6" />
+
+  <!-- Delicate cyber-neon perspective grid along the horizon -->
+  <g stroke="url(#gridGlow)" stroke-width="1">
+    <line x1="0" y1="640" x2="1600" y2="640" />
+    <line x1="0" y1="690" x2="1600" y2="690" />
+    <line x1="0" y1="755" x2="1600" y2="755" />
+    <line x1="0" y1="835" x2="1600" y2="835" />
+    <line x1="800" y1="560" x2="120" y2="900" />
+    <line x1="800" y1="560" x2="440" y2="900" />
+    <line x1="800" y1="560" x2="800" y2="900" />
+    <line x1="800" y1="560" x2="1160" y2="900" />
+    <line x1="800" y1="560" x2="1480" y2="900" />
+  </g>
+
+  <!-- Floating starlight motes -->
+  <circle cx="340" cy="190" r="1.5" fill="#bae6fd" fill-opacity="0.6" />
+  <circle cx="620" cy="140" r="1.2" fill="#f5d0fe" fill-opacity="0.55" />
+  <circle cx="960" cy="165" r="1.8" fill="#c4b5fd" fill-opacity="0.65" />
+  <circle cx="1310" cy="210" r="1.5" fill="#7dd3fc" fill-opacity="0.7" />
+  <circle cx="1420" cy="430" r="1.4" fill="#e879f9" fill-opacity="0.5" />
+</svg>

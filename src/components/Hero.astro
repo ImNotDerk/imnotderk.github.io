@@ -1,0 +1,80 @@
+---
+import { profile } from '../data/portfolio';
+import { withBase } from '../utils/paths';
+---
+
+<section
+  id="top"
+  class="parallax-wrap cyber-scan relative flex min-h-[92dvh] items-end pb-20 pt-32"
+>
+  <!-- Full-Bleed Scenic Parallax Backdrops -->
+  <img
+    src={withBase(profile.backdrops.heroFrieren)}
+    alt=""
+    aria-hidden="true"
+    fetchpriority="high"
+    width="1920"
+    height="1080"
+    class="backdrop-frieren parallax-layer pointer-events-none absolute inset-0 h-full w-full select-none object-cover opacity-85"
+  />
+  <img
+    src={withBase(profile.backdrops.heroCyberzone)}
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+    width="1920"
+    height="1080"
+    class="backdrop-cyberzone parallax-layer pointer-events-none absolute inset-0 h-full w-full select-none object-cover opacity-85"
+  />
+
+  <!-- Smooth Atmospheric Fade Into Canvas (No Hard Bottom Seam) -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0"
+    style="background: linear-gradient(180deg, color-mix(in srgb, var(--bg-canvas) 16%, transparent) 0%, color-mix(in srgb, var(--bg-canvas) 54%, transparent) 58%, var(--bg-canvas) 100%);"
+  >
+  </div>
+
+  <!-- Minimalist Open Editorial Lead -->
+  <div class="relative z-10 mx-auto w-full max-w-6xl px-6">
+    <p
+      data-reveal
+      style="--reveal-delay: 0ms;"
+      class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-[var(--accent)]"
+    >
+      &mdash; {profile.role} &middot; {profile.location}
+    </p>
+
+    <h1
+      data-reveal
+      style="--reveal-delay: 90ms;"
+      class="font-display mt-6 text-6xl font-bold tracking-tight text-[var(--text-primary)] sm:text-8xl"
+    >
+      {profile.name}<span class="text-[var(--accent)]">.</span>
+    </h1>
+
+    <p
+      data-reveal
+      style="--reveal-delay: 170ms;"
+      class="mt-4 max-w-xl text-lg leading-relaxed text-[var(--text-secondary)] sm:text-2xl"
+    >
+      {profile.tagline}
+    </p>
+
+    <div
+      data-reveal
+      style="--reveal-delay: 250ms;"
+      class="mt-8 flex flex-wrap items-center gap-8"
+    >
+      <a href={withBase('/#work')} class="link-editorial">
+        <span>Selected work</span>
+        <span aria-hidden="true" class="arrow-down">&darr;</span>
+      </a>
+
+      <a href={withBase('/#contact')} class="link-editorial">
+        <span>Get in touch</span>
+        <span aria-hidden="true" class="arrow-right">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>

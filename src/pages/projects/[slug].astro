@@ -1,0 +1,180 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { profile } from '../../data/portfolio';
+import { withBase } from '../../utils/paths';
+
+export async function getStaticPaths() {
+  const projects = (await getCollection('projects')).sort(
+    (a, b) => a.data.order - b.data.order,
+  );
+
+  return projects.map((project, index) => ({
+    params: { slug: project.id },
+    props: {
+      project,
+      prevProject: index > 0 ? projects[index - 1] : null,
+      nextProject: index < projects.length - 1 ? projects[index + 1] : null,
+    },
+  }));
+}
+
+const { project, prevProject, nextProject } = Astro.props;
+const { Content } = await render(project);
+const {
+  title,
+  summary,
+  role,
+  period,
+  metrics,
+  stack,
+  repoUrl,
+  liveUrl,
+  architectureSummary,
+  coverImage,
+  coverAlt,
+} = project.data;
+const transitionId = `project-title-${project.id.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+---
+
+<BaseLayout title={`${title} — ${profile.name}`} description={summary}>
+  <article class="py-12 sm:py-16">
+    <nav aria-label="Breadcrumb">
+      <a
+        href={withBase('/#work')}
+        class="inline-flex items-center gap-1.5 font-mono text-xs text-[var(--text-muted)] transition-colors hover:text-[var(--text-primary)]"
+      >
+        <span aria-hidden="true">&larr;</span>
+        <span>Back to Work</span>
+      </a>
+    </nav>
+
+    <header class="mt-8 border-b border-[var(--border-hairline)] pb-8">
+      <div class="flex flex-wrap items-center gap-3 font-mono text-xs text-[var(--text-muted)]">
+        <span>{role}</span>
+        <span aria-hidden="true">&middot;</span>
+        <span>{period}</span>
+      </div>
+
+      <h1
+        style={`view-transition-name: ${transitionId};`}
+        class="font-display mt-3 text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl"
+      >
+        {title}
+      </h1>
+
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
+        {summary}
+      </p>
+
+      <div class="mt-6 flex flex-wrap items-center gap-7">
+        {
+          repoUrl && (
+            <a
+              href={repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-editorial text-xs"
+            >
+              <span>View Repository</span>
+              <span aria-hidden="true" class="arrow-diag">&nearr;</span>
+            </a>
+          )
+        }
+        {
+          liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-editorial text-xs"
+            >
+              <span>Live Deployment</span>
+              <span aria-hidden="true" class="arrow-diag">&nearr;</span>
+            </a>
+          )
+        }
+      </div>
+
+      <div class="mt-8 overflow-hidden rounded-2xl border border-[var(--border-hairline)] bg-[var(--bg-subtle)]">
+        <img
+          src={withBase(coverImage)}
+          alt={coverAlt}
+          class="aspect-video w-full object-cover"
+        />
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="surface-card rounded-xl p-4">
+          <p class="font-mono text-[11px] uppercase tracking-wider text-[var(--text-muted)]">
+            Architecture Snapshot
+          </p>
+          <p class="mt-1.5 text-sm leading-relaxed text-[var(--text-secondary)]">
+            {architectureSummary}
+          </p>
+        </div>
+
+        <div class="surface-card rounded-xl p-4">
+          <p class="font-mono text-[11px] uppercase tracking-wider text-[var(--text-muted)]">
+            Key Outcomes &amp; Stack
+          </p>
+          {
+            metrics.length > 0 && (
+              <p class="mt-2 font-mono text-xs font-medium text-[var(--accent)]">
+                {metrics.join(' | ')}
+              </p>
+            )
+          }
+          <p class="mt-3 font-mono text-xs text-[var(--text-muted)]">
+            {stack.join(' / ')}
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="prose-case-study mt-10 max-w-3xl">
+      <Content />
+    </div>
+
+    {
+      (prevProject || nextProject) && (
+        <nav
+          aria-label="Case study pagination"
+          class="mt-16 grid grid-cols-1 gap-4 border-t border-[var(--border-hairline)] pt-8 sm:grid-cols-2"
+        >
+          {prevProject ? (
+            <a
+              href={withBase(`/projects/${prevProject.id}/`)}
+              class="surface-card rounded-xl p-4 text-left"
+            >
+              <span class="font-mono text-[11px] text-[var(--text-muted)]">
+                &larr; Previous Case Study
+              </span>
+              <p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">
+                {prevProject.data.title}
+              </p>
+            </a>
+          ) : (
+            <div />
+          )}
+
+          {nextProject ? (
+            <a
+              href={withBase(`/projects/${nextProject.id}/`)}
+              class="surface-card rounded-xl p-4 text-right"
+            >
+              <span class="font-mono text-[11px] text-[var(--text-muted)]">
+                Next Case Study &rarr;
+              </span>
+              <p class="mt-1 text-sm font-semibold text-[var(--text-primary)]">
+                {nextProject.data.title}
+              </p>
+            </a>
+          ) : (
+            <div />
+          )}
+        </nav>
+      )
+    }
+  </article>
+</BaseLayout>

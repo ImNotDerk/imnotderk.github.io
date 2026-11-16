@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="edBg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#090f24" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#3b0764" />
+    </linearGradient>
+    <linearGradient id="edAccent" x1="320" y1="160" x2="480" y2="270" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#e879f9" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#edBg)" />
+  <circle cx="400" cy="240" r="220" fill="#6366f1" fill-opacity="0.18" />
+
+  <rect x="240" y="135" width="320" height="190" rx="20" fill="#090d1a" fill-opacity="0.72" stroke="url(#edAccent)" stroke-width="1.5" />
+  <rect x="352" y="182" width="96" height="66" rx="10" stroke="url(#edAccent)" stroke-width="2.5" />
+  <circle cx="400" cy="215" r="14" stroke="#60a5fa" stroke-width="2" />
+  <circle cx="430" cy="197" r="3" fill="#c084fc" />
+
+  <text x="400" y="290" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#e2e8f0">DEMO DAY &amp; TEAM PHOTO SLOT</text>
+  <text x="400" y="308" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">public/images/events/event-demoday.svg</text>
+</svg>

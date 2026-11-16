@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <style>
+    rect { fill: #09090b; stroke: #27272a; }
+    text { fill: #fafafa; }
+    @media (prefers-color-scheme: light) {
+      rect { fill: #fafafa; stroke: #e4e4e7; }
+      text { fill: #09090b; }
+    }
+  </style>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke-width="2" />
+  <text
+    x="32"
+    y="40"
+    text-anchor="middle"
+    font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+    font-size="24"
+    font-weight="700"
+    letter-spacing="-1"
+  >DK</text>
+</svg>

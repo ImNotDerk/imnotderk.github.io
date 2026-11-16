@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bgB" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#070a14" />
+      <stop offset="55%" stop-color="#0e1429" />
+      <stop offset="100%" stop-color="#171230" />
+    </linearGradient>
+    <linearGradient id="linkB" x1="250" y1="235" x2="550" y2="235" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f5d08a" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <pattern id="gridB" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" stroke="#94a3b8" stroke-opacity="0.07" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgB)" />
+  <rect width="800" height="450" fill="url(#gridB)" />
+
+  <circle cx="190" cy="140" r="185" fill="#38bdf8" fill-opacity="0.11" />
+  <circle cx="620" cy="310" r="200" fill="#f5d08a" fill-opacity="0.09" />
+
+  <!-- Top Header Label -->
+  <text x="56" y="64" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" letter-spacing="2.2" fill="#f5d08a">DEVELOPER CAMP MANILA 2026  ·  TOP 16 OF 53 TEAMS</text>
+  <text x="56" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="700" fill="#f8fafc">BiyaHey! — Unified Philippine Transit MVP</text>
+  <line x1="56" y1="116" x2="744" y2="116" stroke="#94a3b8" stroke-opacity="0.2" stroke-width="1" />
+
+  <!-- Bidirectional Connector -->
+  <path d="M296 248 H504" stroke="url(#linkB)" stroke-width="2" stroke-dasharray="6 4" />
+  <polygon points="498,243 508,248 498,253" fill="#818cf8" />
+  <polygon points="302,243 292,248 302,253" fill="#f5d08a" />
+  <rect x="334" y="216" width="132" height="22" rx="4" fill="#0b1020" stroke="#38bdf8" stroke-opacity="0.4" />
+  <text x="400" y="231" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#bae6fd">Bearer JWT / OAuth2</text>
+
+  <!-- Left Node: React + TS Frontend -->
+  <rect x="56" y="170" width="240" height="158" rx="12" fill="#0d1324" fill-opacity="0.92" stroke="#f5d08a" stroke-opacity="0.55" stroke-width="1.5" />
+  <text x="78" y="202" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1.4" fill="#f5d08a">CLIENT SPA</text>
+  <text x="78" y="228" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="600" fill="#f8fafc">Transit Route Aggregator</text>
+  <text x="78" y="254" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">React + TypeScript</text>
+  <text x="78" y="274" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Tailwind CSS v4 · Router</text>
+  <text x="78" y="302" font-family="ui-monospace, monospace" font-size="10" fill="#cbd5e1">@react-oauth/google  ·  48h MVP</text>
+
+  <!-- Right Node: Django + SimpleJWT -->
+  <rect x="504" y="170" width="240" height="158" rx="12" fill="#0d1324" fill-opacity="0.92" stroke="#818cf8" stroke-opacity="0.6" stroke-width="1.5" />
+  <text x="526" y="202" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1.4" fill="#a5b4fc">REST BACKEND</text>
+  <text x="526" y="228" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="600" fill="#f8fafc">Google OAuth 2.0 + API</text>
+  <text x="526" y="254" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Django 6 · DRF · Allauth</text>
+  <text x="526" y="274" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">SimpleJWT Token Exchange</text>
+  <text x="526" y="302" font-family="ui-monospace, monospace" font-size="10" fill="#cbd5e1">GoogleOAuth2Adapter  ·  Stateless</text>
+
+  <!-- Footer Spec Bar -->
+  <line x1="56" y1="372" x2="744" y2="372" stroke="#94a3b8" stroke-opacity="0.2" stroke-width="1" />
+  <text x="56" y="400" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">01 / Unified commuter routes across fragmented networks</text>
+  <text x="744" y="400" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#f5d08a">MANILA  ·  MAR 2026</text>
+</svg>

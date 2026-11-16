@@ -1,0 +1,38 @@
+---
+import type { ExperienceEntry } from '../data/portfolio';
+
+interface Props {
+  entry: ExperienceEntry;
+  index?: number;
+}
+
+const { entry, index = 0 } = Astro.props;
+---
+
+<li
+  data-reveal
+  style={`--reveal-delay: ${index * 70}ms;`}
+  class="grid grid-cols-1 gap-2 py-6 sm:grid-cols-12 sm:items-baseline sm:gap-6"
+>
+  <div class="font-mono text-xs text-[var(--text-muted)] sm:col-span-4">
+    <p class="font-medium text-[var(--accent)]">{entry.period}</p>
+    <p class="mt-0.5 text-[11px]">{entry.location}</p>
+  </div>
+
+  <div class="sm:col-span-8">
+    <h3 class="font-display text-lg font-bold tracking-tight text-[var(--text-primary)]">
+      {entry.role}
+      <span class="font-sans text-sm font-medium text-[var(--text-secondary)]">
+        &middot; {entry.company}
+      </span>
+    </h3>
+
+    <p class="mt-1.5 text-sm leading-relaxed text-[var(--text-secondary)]">
+      {entry.summary}
+    </p>
+
+    <p class="mt-2.5 font-mono text-xs text-[var(--text-muted)]">
+      {entry.stack.join(' / ')}
+    </p>
+  </div>
+</li>

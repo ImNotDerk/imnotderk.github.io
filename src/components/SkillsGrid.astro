@@ -1,0 +1,24 @@
+---
+import type { SkillCategory } from '../data/portfolio';
+
+interface Props {
+  categories: SkillCategory[];
+}
+
+const { categories } = Astro.props;
+---
+
+<dl class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+  {
+    categories.map((category, idx) => (
+      <div data-reveal style={`--reveal-delay: ${idx * 70}ms;`}>
+        <dt class="font-mono text-xs font-medium uppercase tracking-[0.16em] text-[var(--accent)]">
+          {category.title}
+        </dt>
+        <dd class="mt-2.5 font-mono text-xs leading-relaxed text-[var(--text-secondary)]">
+          {category.items.join(' · ')}
+        </dd>
+      </div>
+    ))
+  }
+</dl>

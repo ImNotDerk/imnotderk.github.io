@@ -1,0 +1,391 @@
+---
+import { getCollection } from 'astro:content';
+import { profile, skillCategories } from '../data/portfolio';
+import { withBase } from '../utils/paths';
+
+const projects = (await getCollection('projects'))
+  .filter((entry) => entry.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const cliPayload = {
+  location: profile.location,
+  timezone: profile.timezone,
+  whoami: `${profile.name} — ${profile.role} in ${profile.location}. ${profile.tagline}`,
+  stack: skillCategories.map((c) => `${c.title}: ${c.items.join(' · ')}`),
+  work: projects.map((p, idx) => {
+    const num = String(idx + 1).padStart(2, '0');
+    const metric = p.data.metrics[0] ? ` (${p.data.metrics[0]})` : '';
+    return `${num} · ${p.data.title}${metric}`;
+  }),
+  now: profile.currentFocus,
+  contact: profile.socials
+    .map((s) => (s.kind === 'email' ? s.handle : s.href.replace(/^https?:\/\/(www\.)?/, '')))
+    .join(' · '),
+};
+---
+
+<section id="about" class="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+  <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
+    <!-- Left Column: Concise Editorial Bio + 2-Column Spec Row -->
+    <div data-reveal class="lg:col-span-6">
+      <p class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-[var(--accent)]">
+        About
+      </p>
+
+      <h2 class="font-display mt-3 text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-5xl">
+        {profile.aboutHeading}
+      </h2>
+
+      <p class="mt-5 text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
+        {profile.aboutBio}
+      </p>
+
+      <!-- Typographic Spec Row -->
+      <div class="mt-8 grid grid-cols-1 gap-6 border-t border-[var(--border-hairline)] pt-5 sm:grid-cols-2">
+        <div>
+          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
+            Local Time
+          </p>
+          <p class="mt-1 font-mono text-xs text-[var(--text-primary)]">
+            <span data-live-clock class="font-semibold text-[var(--accent)]">--:--</span>
+            <span aria-hidden="true" class="mx-1 text-[var(--text-muted)]">&middot;</span>
+            <span data-tz-diff class="text-[var(--text-secondary)]">{profile.location}</span>
+          </p>
+        </div>
+
+        <div>
+          <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
+            Current Focus
+          </p>
+          <p class="mt-1 text-xs leading-relaxed text-[var(--text-secondary)]">
+            {profile.currentFocus}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Custom Photo (when set in portfolio.ts) or Theme Parallax Scene -->
+    <div data-reveal style="--reveal-delay: 120ms;" class="lg:col-span-6">
+      <div
+        class="parallax-wrap cyber-scan relative aspect-[16/10] w-full overflow-clip rounded-3xl border border-[var(--border-hairline)] bg-[var(--bg-subtle)]"
+      >
+        {
+          profile.aboutPhoto ? (
+            <img
+              src={withBase(profile.aboutPhoto)}
+              alt={profile.aboutPhotoAlt}
+              loading="lazy"
+              width="1920"
+              height="1080"
+              class="parallax-layer h-full w-full object-cover"
+            />
+          ) : (
+            <>
+              <img
+                src={withBase(profile.backdrops.aboutFrieren)}
+                alt="Sousou no Frieren flower meadow scenic frame"
+                loading="lazy"
+                width="1920"
+                height="1080"
+                class="backdrop-frieren parallax-layer h-full w-full object-cover"
+              />
+              <img
+                src={withBase(profile.backdrops.aboutCyberzone)}
+                alt="Cyberpunk rainy street neon scenic frame"
+                loading="lazy"
+                width="1920"
+                height="1080"
+                class="backdrop-cyberzone parallax-layer h-full w-full object-cover"
+              />
+            </>
+          )
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Sleek Minimal Interactive Command Bar -->
+  <div
+    data-reveal
+    style="--reveal-delay: 200ms;"
+    class="soft-card mt-14 rounded-2xl bg-[var(--code-bg)]/80 p-4 sm:p-5"
+  >
+    <div class="flex flex-wrap items-center justify-between gap-2">
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs" aria-label="Quick terminal commands">
+        <span class="font-semibold text-[var(--accent)]">{profile.terminalUser}@sh</span>
+        <span class="text-[var(--text-muted)]">try:</span>
+        {
+          ['whoami', 'stack', 'work', 'now', 'contact', 'help'].map((cmd, idx) => (
+            <>
+              {idx > 0 && <span aria-hidden="true" class="text-[var(--text-muted)]">&middot;</span>}
+              <button
+                type="button"
+                data-cli-cmd={cmd}
+                class="font-mono text-xs text-[var(--text-primary)] underline decoration-[var(--border-hover)] underline-offset-4 transition-colors hover:text-[var(--accent)] hover:decoration-[var(--accent)] cursor-pointer"
+              >
+                {cmd}
+              </button>
+            </>
+          ))
+        }
+      </div>
+
+      <button
+        type="button"
+        data-cli-clear
+        class="font-mono text-xs text-[var(--text-muted)] underline decoration-transparent underline-offset-4 transition-colors hover:text-[var(--text-primary)] hover:decoration-[var(--border-hover)] cursor-pointer"
+      >
+        clear
+      </button>
+    </div>
+
+    <div
+      id="cli-output"
+      data-lenis-prevent
+      role="log"
+      aria-live="polite"
+      aria-label="Interactive shell output"
+      class="mt-3 max-h-36 space-y-1.5 overflow-y-auto px-1 font-mono text-xs leading-relaxed text-[var(--text-secondary)]"
+    >
+      <p>
+        <span class="text-[var(--accent)]">&rarr;</span> Ready. Click a command above or run
+        <span class="text-[var(--text-primary)]">help</span>,
+        <span class="text-[var(--text-primary)]">whoami</span>, or
+        <span class="text-[var(--text-primary)]">work</span>.
+      </p>
+    </div>
+
+    <form
+      id="cli-form"
+      class="mt-3 flex items-center gap-2 border-b border-[var(--border-hairline)] pb-1.5 transition-colors focus-within:border-[var(--accent)]"
+    >
+      <span class="font-mono text-xs font-semibold text-[var(--accent)]" aria-hidden="true">$</span>
+      <label for="cli-input" class="sr-only">Terminal command</label>
+      <input
+        id="cli-input"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Type a command (help, whoami, stack, work...)"
+        class="w-full bg-transparent py-1 font-mono text-xs text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none"
+      />
+      <button
+        type="submit"
+        class="shrink-0 font-mono text-xs font-medium text-[var(--accent)] underline-offset-4 transition-opacity hover:underline cursor-pointer"
+      >
+        Run &crarr;
+      </button>
+    </form>
+  </div>
+</section>
+
+<script is:inline type="application/json" id="cli-data" set:html={JSON.stringify(cliPayload).replace(/</g, '\\u003c')} />
+
+<script>
+  interface CliPayload {
+    location: string;
+    timezone: string;
+    whoami: string;
+    stack: string[];
+    work: string[];
+    now: string;
+    contact: string;
+  }
+
+  const rawCliData = document.getElementById('cli-data')?.textContent;
+  const cliData: CliPayload = rawCliData
+    ? JSON.parse(rawCliData)
+    : {
+        location: 'Philippines',
+        timezone: 'Asia/Manila',
+        whoami: '',
+        stack: [],
+        work: [],
+        now: '',
+        contact: '',
+      };
+
+  // 1. Live Local Clock + Visitor Timezone Comparator
+  const clockEl = document.querySelector<HTMLElement>('[data-live-clock]');
+  const tzDiffEl = document.querySelector<HTMLElement>('[data-tz-diff]');
+
+  let activeTimeZone = cliData.timezone || 'Asia/Manila';
+  let ownerClockFmt: Intl.DateTimeFormat;
+  try {
+    ownerClockFmt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: activeTimeZone,
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    });
+  } catch {
+    activeTimeZone = 'Asia/Manila';
+    ownerClockFmt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: activeTimeZone,
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    });
+  }
+
+  const localShortFmt = new Intl.DateTimeFormat('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  });
+
+  function getTimeZoneOffsetMinutes(date: Date, timeZone: string): number {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone,
+      timeZoneName: 'shortOffset',
+    }).formatToParts(date);
+    const offsetText = parts.find((p) => p.type === 'timeZoneName')?.value ?? 'GMT';
+    const match = offsetText.match(/^GMT([+-])(\d{1,2})(?::(\d{2}))?$/);
+    if (!match) return 0;
+    const sign = match[1] === '-' ? -1 : 1;
+    return sign * (Number(match[2]) * 60 + Number(match[3] ?? '0'));
+  }
+
+  function updateClockAndOffset() {
+    const now = new Date();
+    if (clockEl) {
+      clockEl.textContent = `${cliData.location} · ${ownerClockFmt.format(now)}`;
+    }
+
+    if (tzDiffEl) {
+      const ownerOffsetMin = getTimeZoneOffsetMinutes(now, activeTimeZone);
+      const visitorOffsetMin = -now.getTimezoneOffset();
+      const diffMin = ownerOffsetMin - visitorOffsetMin;
+
+      if (diffMin === 0) {
+        tzDiffEl.textContent = 'Same time as you';
+      } else {
+        const absMin = Math.abs(diffMin);
+        const hours = Math.floor(absMin / 60);
+        const mins = absMin % 60;
+        const gap = mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+        const relation = diffMin > 0 ? 'ahead of you' : 'behind you';
+        tzDiffEl.textContent = `${gap} ${relation} (you: ${localShortFmt.format(now)})`;
+      }
+    }
+  }
+
+  updateClockAndOffset();
+  window.setInterval(updateClockAndOffset, 15000);
+
+  // 2. Interactive Mini-Terminal (driven by portfolio.ts + src/content/projects)
+  const cliForm = document.getElementById('cli-form') as HTMLFormElement | null;
+  const cliInput = document.getElementById('cli-input') as HTMLInputElement | null;
+  const cliOutput = document.getElementById('cli-output');
+  const cliClearBtn = document.querySelector<HTMLButtonElement>('[data-cli-clear]');
+  const cliChips = document.querySelectorAll<HTMLButtonElement>('[data-cli-cmd]');
+  const commandHistory: string[] = [];
+  let historyCursor = -1;
+
+  function appendCliEntry(cmdText: string, lines: string[]) {
+    if (!cliOutput) return;
+    const block = document.createElement('div');
+
+    const promptLine = document.createElement('p');
+    promptLine.className = 'text-[var(--accent)]';
+    promptLine.textContent = `$ ${cmdText}`;
+    block.appendChild(promptLine);
+
+    for (const line of lines) {
+      const outLine = document.createElement('p');
+      outLine.className = 'text-[var(--text-secondary)]';
+      outLine.textContent = line;
+      block.appendChild(outLine);
+    }
+
+    cliOutput.appendChild(block);
+    cliOutput.scrollTop = cliOutput.scrollHeight;
+  }
+
+  function runCliCommand(raw: string) {
+    const trimmed = raw.trim();
+    if (!trimmed) return;
+
+    const cmd = trimmed.toLowerCase();
+    commandHistory.unshift(trimmed);
+    historyCursor = -1;
+
+    if (cmd === 'clear') {
+      if (cliOutput) cliOutput.replaceChildren();
+      return;
+    }
+
+    if (cmd === 'help') {
+      appendCliEntry(trimmed, [
+        'Commands: whoami, stack, work, now, contact, clear',
+      ]);
+      return;
+    }
+
+    if (cmd === 'whoami') {
+      appendCliEntry(trimmed, [cliData.whoami]);
+      return;
+    }
+
+    if (cmd === 'stack') {
+      appendCliEntry(trimmed, cliData.stack);
+      return;
+    }
+
+    if (cmd === 'work') {
+      appendCliEntry(trimmed, cliData.work);
+      return;
+    }
+
+    if (cmd === 'now') {
+      appendCliEntry(trimmed, [
+        `${cliData.location} ${ownerClockFmt.format(new Date())} · ${cliData.now}`,
+      ]);
+      return;
+    }
+
+    if (cmd === 'contact') {
+      appendCliEntry(trimmed, [cliData.contact]);
+      return;
+    }
+
+    appendCliEntry(trimmed, [`Unknown command "${trimmed}". Try help.`]);
+  }
+
+  cliForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!cliInput) return;
+    runCliCommand(cliInput.value);
+    cliInput.value = '';
+  });
+
+  // Guard IME confirmation Enter keydown + handle ArrowUp/ArrowDown command history
+  cliInput?.addEventListener('keydown', (event: KeyboardEvent) => {
+    if (event.key === 'Enter' && (event.isComposing || event.keyCode === 229)) {
+      event.preventDefault();
+      return;
+    }
+
+    if (event.key === 'ArrowUp' && commandHistory.length > 0) {
+      event.preventDefault();
+      historyCursor = Math.min(commandHistory.length - 1, historyCursor + 1);
+      cliInput.value = commandHistory[historyCursor];
+    } else if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      historyCursor = Math.max(-1, historyCursor - 1);
+      cliInput.value = historyCursor === -1 ? '' : commandHistory[historyCursor];
+    }
+  });
+
+  cliChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const cmd = chip.dataset.cliCmd;
+      if (cmd) runCliCommand(cmd);
+    });
+  });
+
+  cliClearBtn?.addEventListener('click', () => {
+    if (cliOutput) cliOutput.replaceChildren();
+    cliInput?.focus();
+  });
+</script>

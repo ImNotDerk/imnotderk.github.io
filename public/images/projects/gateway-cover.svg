@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="gBg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#070d1f" />
+      <stop offset="55%" stop-color="#17123b" />
+      <stop offset="100%" stop-color="#2b0f47" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="330" y1="120" x2="470" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#gBg)" />
+  <circle cx="400" cy="225" r="190" fill="#4f46e5" fill-opacity="0.16" />
+  <circle cx="560" cy="140" r="150" fill="#a855f7" fill-opacity="0.15" />
+
+  <!-- Concentric zero-trust rings -->
+  <circle cx="400" cy="225" r="158" stroke="#60a5fa" stroke-opacity="0.22" stroke-dasharray="5 6" />
+  <circle cx="400" cy="225" r="115" stroke="#a855f7" stroke-opacity="0.3" />
+
+  <!-- Edge traffic lines -->
+  <path d="M90 225 H285 M515 225 H710" stroke="url(#shieldGrad)" stroke-width="2" stroke-dasharray="4 4" />
+
+  <!-- Shield Emblem -->
+  <path d="M400 124 L476 156 V222 C476 274 443 310 400 328 C357 310 324 274 324 222 V156 L400 124 Z" fill="#0f172a" fill-opacity="0.92" stroke="url(#shieldGrad)" stroke-width="2.5" />
+  <path d="M376 226 L393 243 L428 206" stroke="#c084fc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Side chips -->
+  <rect x="86" y="196" width="128" height="58" rx="12" fill="#0f172a" stroke="#60a5fa" stroke-opacity="0.6" />
+  <text x="150" y="222" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#93c5fd">OIDC / JWT</text>
+  <text x="150" y="239" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">JWKS Cached</text>
+
+  <rect x="586" y="196" width="128" height="58" rx="12" fill="#18102b" stroke="#c084fc" stroke-opacity="0.6" />
+  <text x="650" y="222" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#e9d5ff">RATE LIMIT</text>
+  <text x="650" y="239" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#a855f7">&lt; 1.8ms p95</text>
+</svg>

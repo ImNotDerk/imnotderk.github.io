@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bgP" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#070a14" />
+      <stop offset="55%" stop-color="#0c1526" />
+      <stop offset="100%" stop-color="#13162b" />
+    </linearGradient>
+    <linearGradient id="linkP" x1="296" y1="248" x2="504" y2="248" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#f5d08a" />
+    </linearGradient>
+    <pattern id="gridP" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" stroke="#94a3b8" stroke-opacity="0.07" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgP)" />
+  <rect width="800" height="450" fill="url(#gridP)" />
+
+  <circle cx="185" cy="145" r="185" fill="#38bdf8" fill-opacity="0.11" />
+  <circle cx="620" cy="305" r="195" fill="#34d399" fill-opacity="0.09" />
+
+  <!-- Top Header Label -->
+  <text x="56" y="64" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" letter-spacing="2.2" fill="#34d399">LOCAL IPHONE TRIAGE  ·  CRYPTOGRAPHIC SHA-256 BACKUP</text>
+  <text x="56" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="700" fill="#f8fafc">PhotoTriage — Verified iPhone &amp; Drive Backup</text>
+  <line x1="56" y1="116" x2="744" y2="116" stroke="#94a3b8" stroke-opacity="0.2" stroke-width="1" />
+
+  <!-- Streaming Connector -->
+  <path d="M296 248 H504" stroke="url(#linkP)" stroke-width="2" stroke-dasharray="6 4" />
+  <polygon points="498,243 508,248 498,253" fill="#34d399" />
+  <rect x="328" y="216" width="144" height="22" rx="4" fill="#0b1020" stroke="#38bdf8" stroke-opacity="0.45" />
+  <text x="400" y="231" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#bae6fd">Chunked Wi-Fi Stream</text>
+  <text x="400" y="269" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#6ee7b7">POST /api/upload</text>
+
+  <!-- Left Node: iOS Native / Web -->
+  <rect x="56" y="170" width="240" height="158" rx="12" fill="#0d1324" fill-opacity="0.92" stroke="#38bdf8" stroke-opacity="0.55" stroke-width="1.5" />
+  <text x="78" y="202" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1.4" fill="#38bdf8">IOS 17+ NATIVE / WEB</text>
+  <text x="78" y="228" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="600" fill="#f8fafc">PhotoKit Asset Bundles</text>
+  <text x="78" y="254" font-family="ui-monospace, monospace" font-size="10.5" fill="#94a3b8">Swift 6 · SwiftUI · React</text>
+  <text x="78" y="274" font-family="ui-monospace, monospace" font-size="10.5" fill="#94a3b8">.HEIC + .MOV + .AAE sidecars</text>
+  <text x="78" y="302" font-family="ui-monospace, monospace" font-size="9.5" fill="#cbd5e1">1: Trash · 2: HD Only · 3: Keep</text>
+
+  <!-- Right Node: Mac Fastify Receiver -->
+  <rect x="504" y="170" width="240" height="158" rx="12" fill="#0d1324" fill-opacity="0.92" stroke="#34d399" stroke-opacity="0.6" stroke-width="1.5" />
+  <text x="526" y="202" font-family="ui-monospace, monospace" font-size="11" letter-spacing="1.4" fill="#34d399">MAC FASTIFY RECEIVER</text>
+  <text x="526" y="228" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="600" fill="#f8fafc">SHA-256 &amp; Byte Verifier</text>
+  <text x="526" y="254" font-family="ui-monospace, monospace" font-size="10.5" fill="#94a3b8">Fastify · TypeScript · Node 20</text>
+  <text x="526" y="274" font-family="ui-monospace, monospace" font-size="10.5" fill="#94a3b8">External Drive YYYY/MONTH</text>
+  <text x="526" y="302" font-family="ui-monospace, monospace" font-size="9.5" fill="#cbd5e1">Drive Ledger · 1-Tap Delete Lock</text>
+
+  <!-- Footer Spec Bar -->
+  <line x1="56" y1="372" x2="744" y2="372" stroke="#94a3b8" stroke-opacity="0.2" stroke-width="1" />
+  <text x="56" y="400" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">01 / Deletion locked until 100% match bytes &amp; SHA-256 on drive</text>
+  <text x="744" y="400" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#34d399">SWIFT 6 · FASTIFY · 2026</text>
+</svg>

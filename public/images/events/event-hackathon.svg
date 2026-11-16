@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="ehBg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#3b0764" />
+    </linearGradient>
+    <linearGradient id="ehAccent" x1="250" y1="130" x2="550" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <pattern id="ehGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.1" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#ehBg)" />
+  <rect width="800" height="500" fill="url(#ehGrid)" />
+  <circle cx="220" cy="180" r="190" fill="#3b82f6" fill-opacity="0.22" />
+  <circle cx="580" cy="340" r="200" fill="#a855f7" fill-opacity="0.24" />
+
+  <!-- Trophy / Hackathon build frame -->
+  <rect x="240" y="135" width="320" height="190" rx="20" fill="#090d1a" fill-opacity="0.72" stroke="url(#ehAccent)" stroke-width="1.5" />
+  <path d="M372 184 H428 V212 C428 228 416 240 400 240 C384 240 372 228 372 212 V184 Z" stroke="url(#ehAccent)" stroke-width="2.5" />
+  <path d="M372 192 H356 C356 208 364 214 372 214 M428 192 H444 C444 208 436 214 428 214" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" />
+  <path d="M400 240 V258 M382 258 H418" stroke="#c084fc" stroke-width="2.5" stroke-linecap="round" />
+
+  <text x="400" y="290" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#e2e8f0">48H HACKATHON PHOTO SLOT</text>
+  <text x="400" y="308" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">public/images/events/event-hackathon.svg</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="dawnSky" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#050711" />
+      <stop offset="45%" stop-color="#0b1330" />
+      <stop offset="100%" stop-color="#1b0d38" />
+    </linearGradient>
+    <radialGradient id="blueAurora" cx="24%" cy="32%" r="58%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.58" />
+      <stop offset="50%" stop-color="#4f46e5" stop-opacity="0.24" />
+      <stop offset="100%" stop-color="#1e1b4b" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="violetAurora" cx="78%" cy="48%" r="55%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.52" />
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#2e1065" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="ribbon1" x1="120" y1="620" x2="1480" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
+      <stop offset="35%" stop-color="#60a5fa" stop-opacity="0.45" />
+      <stop offset="65%" stop-color="#818cf8" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="horizonGlow" x1="800" y1="480" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4338ca" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#050711" stop-opacity="0.95" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#dawnSky)" />
+  <rect width="1600" height="900" fill="url(#blueAurora)" />
+  <rect width="1600" height="900" fill="url(#violetAurora)" />
+
+  <!-- Sweeping atmospheric horizon layers -->
+  <path d="M-80 650 C260 540, 480 680, 820 570 C1120 470, 1340 590, 1680 460 L1680 940 L-80 940 Z" fill="url(#horizonGlow)" />
+  <path d="M-60 710 C290 610, 560 740, 910 640 C1210 555, 1410 660, 1660 560" stroke="url(#ribbon1)" stroke-width="3" />
+  <path d="M-60 620 C240 500, 540 620, 860 500 C1180 380, 1390 480, 1660 360" stroke="url(#ribbon1)" stroke-width="2" stroke-opacity="0.7" />
+  <path d="M-60 530 C300 410, 580 510, 940 390 C1240 290, 1420 350, 1660 250" stroke="url(#ribbon1)" stroke-width="1.5" stroke-opacity="0.45" />
+
+  <!-- Subtle topographic elevation contours -->
+  <path d="M90 790 C420 710, 740 810, 1080 730 C1310 675, 1480 730, 1640 680" stroke="#93c5fd" stroke-opacity="0.14" stroke-width="1" />
+  <path d="M40 835 C380 765, 760 855, 1140 785 C1350 745, 1500 785, 1650 745" stroke="#c084fc" stroke-opacity="0.14" stroke-width="1" />
+
+  <!-- Subtle constellation stars -->
+  <circle cx="240" cy="180" r="1.5" fill="#bfdbfe" fill-opacity="0.7" />
+  <circle cx="380" cy="120" r="1" fill="#e9d5ff" fill-opacity="0.6" />
+  <circle cx="620" cy="210" r="1.5" fill="#93c5fd" fill-opacity="0.55" />
+  <circle cx="890" cy="145" r="2" fill="#ddd6fe" fill-opacity="0.7" />
+  <circle cx="1140" cy="190" r="1.5" fill="#a5b4fc" fill-opacity="0.6" />
+  <circle cx="1360" cy="135" r="2" fill="#e9d5ff" fill-opacity="0.75" />
+  <circle cx="1440" cy="260" r="1.2" fill="#bfdbfe" fill-opacity="0.55" />
+  <circle cx="520" cy="310" r="1.2" fill="#c4b5fd" fill-opacity="0.5" />
+  <circle cx="1010" cy="280" r="1.4" fill="#93c5fd" fill-opacity="0.55" />
+</svg>

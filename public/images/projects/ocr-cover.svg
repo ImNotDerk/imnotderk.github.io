@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bgO" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#060914" />
+      <stop offset="55%" stop-color="#0f152a" />
+      <stop offset="100%" stop-color="#191032" />
+    </linearGradient>
+    <linearGradient id="pipeO" x1="250" y1="248" x2="540" y2="248" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <pattern id="gridO" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" stroke="#94a3b8" stroke-opacity="0.07" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgO)" />
+  <rect width="800" height="450" fill="url(#gridO)" />
+
+  <circle cx="200" cy="140" r="180" fill="#3b82f6" fill-opacity="0.14" />
+  <circle cx="610" cy="310" r="190" fill="#a855f7" fill-opacity="0.14" />
+
+  <!-- Top Header -->
+  <text x="56" y="64" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" letter-spacing="2.2" fill="#818cf8">C++20 SYSTEMS  ·  BIDIRECTIONAL gRPC</text>
+  <text x="56" y="96" font-family="ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="700" fill="#f8fafc">Distributed OCR Pipeline</text>
+  <line x1="56" y1="116" x2="744" y2="116" stroke="#94a3b8" stroke-opacity="0.2" stroke-width="1" />
+
+  <!-- Stream Connector -->
+  <path d="M272 248 H528" stroke="url(#pipeO)" stroke-width="2.2" stroke-dasharray="6 4" />
+  <polygon points="522,243 532,248 522,253" fill="#c084fc" />
+  <polygon points="278,243 268,248 278,253" fill="#60a5fa" />
+  <rect x="306" y="212" width="188" height="24" rx="4" fill="#0b1020" stroke="#818cf8" stroke-opacity="0.45" />
+  <text x="400" y="228" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#e0e7ff">rpc ProcessImages (duplex)</text>
+  <text x="400" y="272" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#94a3b8">QUEUED → PROCESSING → COMPLETED</text>
+
+  <!-- Left Node: Qt 6 Host Mac Client -->
+  <rect x="56" y="168" width="216" height="160" rx="12" fill="#0d1326" fill-opacity="0.92" stroke="#60a5fa" stroke-opacity="0.6" stroke-width="1.5" />
+  <text x="76" y="198" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.4" fill="#93c5fd">HOST MAC CLIENT</text>
+  <text x="76" y="224" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="600" fill="#f8fafc">Qt 6 Desktop App</text>
+  <text x="76" y="252" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Batch PNG Upload</text>
+  <text x="76" y="272" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Async Stream Reader</text>
+  <text x="76" y="304" font-family="ui-monospace, monospace" font-size="10" fill="#cbd5e1">ImageRequest (protobuf)</text>
+
+  <!-- Right Node: UTM VM Server -->
+  <rect x="528" y="168" width="216" height="160" rx="12" fill="#15112c" fill-opacity="0.92" stroke="#c084fc" stroke-opacity="0.6" stroke-width="1.5" />
+  <text x="548" y="198" font-family="ui-monospace, monospace" font-size="10" letter-spacing="1.4" fill="#e9d5ff">UTM VM WORKER POOL</text>
+  <text x="548" y="224" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="600" fill="#f8fafc">C++20 OCR Server</text>
+  <text x="548" y="252" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">mutex + cond_var Queue</text>
+  <text x="548" y="272" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">Tesseract + Leptonica</text>
+  <text x="548" y="304" font-family="ui-monospace, monospace" font-size="10" fill="#e9d5ff">0.0.0.0:50051  ·  CMake</text>
+
+  <!-- Footer -->
+  <line x1="56" y1="372" x2="744" y2="372" stroke="#94a3b8" stroke-opacity="0.2" stroke-width="1" />
+  <text x="56" y="400" font-family="ui-monospace, monospace" font-size="11" fill="#94a3b8">03 / Thread-isolated OCR workers streaming timings &amp; extracted text</text>
+  <text x="744" y="400" text-anchor="end" font-family="ui-monospace, monospace" font-size="11" fill="#818cf8">C++20  ·  2025</text>
+</svg>

@@ -1,0 +1,110 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import AboutStop from '../components/AboutStop.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import SkillsGrid from '../components/SkillsGrid.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { experiences, skillCategories } from '../data/portfolio';
+
+const projects = (await getCollection('projects'))
+  .filter((entry) => entry.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout fullWidth={true}>
+  <Hero />
+
+  <AboutStop />
+
+  <!-- Selected Work: Spacious Alternating Showcase -->
+  <section id="work" class="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+    <div data-reveal>
+      <p class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-[var(--accent)]">
+        Selected Work
+      </p>
+      <h2 class="font-display mt-3 text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-5xl">
+        Systems I&apos;ve Built
+      </h2>
+    </div>
+
+    <div class="mt-8 divide-y divide-[var(--border-hairline)]">
+      {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+    </div>
+  </section>
+
+  <!-- Experience & Stack -->
+  <section id="experience" class="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+    <div data-reveal>
+      <p class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-[var(--accent)]">
+        Experience
+      </p>
+      <h2 class="font-display mt-3 text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-5xl">
+        Where I&apos;ve Shipped
+      </h2>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-7">
+        <ol class="divide-y divide-[var(--border-hairline)]">
+          {experiences.map((entry, index) => <ExperienceItem entry={entry} index={index} />)}
+        </ol>
+      </div>
+
+      <div class="lg:col-span-5">
+        <SkillsGrid categories={skillCategories} />
+      </div>
+    </div>
+  </section>
+
+  <ContactSection />
+
+  <script>
+    const trackedSections = Array.from(
+      document.querySelectorAll<HTMLElement>('main section[id]'),
+    );
+    const navLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('[data-scene-link]'),
+    );
+
+    if (trackedSections.length > 0 && navLinks.length > 0) {
+      const visibleMap = new Map<string, number>();
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            const id = entry.target.id;
+            if (!id) continue;
+            if (entry.isIntersecting) {
+              visibleMap.set(id, entry.intersectionRatio);
+            } else {
+              visibleMap.delete(id);
+            }
+          }
+
+          let activeId = '';
+          let bestRatio = -1;
+          for (const [id, ratio] of visibleMap.entries()) {
+            if (ratio > bestRatio) {
+              bestRatio = ratio;
+              activeId = id;
+            }
+          }
+
+          navLinks.forEach((link) => {
+            if (activeId && link.dataset.sceneLink === activeId) {
+              link.setAttribute('aria-current', 'location');
+            } else {
+              link.removeAttribute('aria-current');
+            }
+          });
+        },
+        { rootMargin: '-18% 0px -50% 0px', threshold: [0.05, 0.25, 0.5] },
+      );
+
+      trackedSections.forEach((sec) => sectionObserver.observe(sec));
+    }
+  </script>
+</BaseLayout>

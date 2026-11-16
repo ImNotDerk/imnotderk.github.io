@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="nebulaSky" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#070614" />
+      <stop offset="50%" stop-color="#141136" />
+      <stop offset="100%" stop-color="#09152f" />
+    </linearGradient>
+    <radialGradient id="nebulaPurple" cx="26%" cy="55%" r="58%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.5" />
+      <stop offset="55%" stop-color="#6d28d9" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#1e1b4b" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="nebulaCyan" cx="78%" cy="32%" r="56%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.42" />
+      <stop offset="50%" stop-color="#2563eb" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#090d1f" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="meshArc" x1="160" y1="740" x2="1440" y2="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0" />
+      <stop offset="35%" stop-color="#a855f7" stop-opacity="0.42" />
+      <stop offset="70%" stop-color="#3b82f6" stop-opacity="0.42" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#nebulaSky)" />
+  <rect width="1600" height="900" fill="url(#nebulaPurple)" />
+  <rect width="1600" height="900" fill="url(#nebulaCyan)" />
+
+  <!-- Architectural perspective arcs & atmospheric mesh ribbons -->
+  <path d="M-100 760 Q 480 420, 920 520 T 1700 220" stroke="url(#meshArc)" stroke-width="3" />
+  <path d="M-100 680 Q 460 350, 900 450 T 1700 150" stroke="url(#meshArc)" stroke-width="2" stroke-opacity="0.65" />
+  <path d="M-100 820 Q 520 500, 960 600 T 1700 310" stroke="url(#meshArc)" stroke-width="1.5" stroke-opacity="0.45" />
+
+  <!-- Subtle perspective horizon rings -->
+  <ellipse cx="860" cy="560" rx="680" ry="210" stroke="#818cf8" stroke-opacity="0.16" stroke-width="1.2" />
+  <ellipse cx="860" cy="560" rx="510" ry="150" stroke="#c084fc" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="6 8" />
+  <ellipse cx="860" cy="560" rx="330" ry="95" stroke="#60a5fa" stroke-opacity="0.2" stroke-width="1" />
+
+  <!-- Distant atmospheric nodes -->
+  <circle cx="310" cy="240" r="2" fill="#e9d5ff" fill-opacity="0.65" />
+  <circle cx="570" cy="175" r="1.5" fill="#93c5fd" fill-opacity="0.6" />
+  <circle cx="1180" cy="220" r="2" fill="#7dd3fc" fill-opacity="0.7" />
+  <circle cx="1390" cy="390" r="1.5" fill="#c4b5fd" fill-opacity="0.6" />
+  <circle cx="760" cy="140" r="1.4" fill="#bfdbfe" fill-opacity="0.55" />
+</svg>

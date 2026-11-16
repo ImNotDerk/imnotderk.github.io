@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#040611" />
+      <stop offset="48%" stop-color="#0d1538" />
+      <stop offset="100%" stop-color="#24124d" />
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="76%" cy="28%" r="48%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.34" />
+      <stop offset="45%" stop-color="#7c3aed" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#040611" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="flowerFieldGlow" cx="72%" cy="84%" r="45%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.34" />
+      <stop offset="55%" stop-color="#a855f7" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#040611" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="meteorCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
+      <stop offset="70%" stop-color="#60a5fa" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#e0f2fe" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="meteorViolet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0" />
+      <stop offset="70%" stop-color="#c084fc" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#fae8ff" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="ridgeBack" x1="800" y1="540" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#13173b" />
+      <stop offset="100%" stop-color="#050713" />
+    </linearGradient>
+    <linearGradient id="ridgeFront" x1="800" y1="670" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0a0d24" />
+      <stop offset="100%" stop-color="#03050d" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)" />
+  <rect width="1600" height="900" fill="url(#moonGlow)" />
+  <rect width="1600" height="900" fill="url(#flowerFieldGlow)" />
+
+  <!-- Subtle starry twilight -->
+  <circle cx="420" cy="140" r="1.4" fill="#e0f2fe" fill-opacity="0.65" />
+  <circle cx="590" cy="95" r="1.1" fill="#e9d5ff" fill-opacity="0.55" />
+  <circle cx="760" cy="175" r="1.6" fill="#bae6fd" fill-opacity="0.7" />
+  <circle cx="910" cy="110" r="1.2" fill="#f5d0fe" fill-opacity="0.65" />
+  <circle cx="1080" cy="82" r="1.8" fill="#e0f2fe" fill-opacity="0.8" />
+  <circle cx="1290" cy="130" r="1.3" fill="#ddd6fe" fill-opacity="0.65" />
+  <circle cx="1450" cy="195" r="1.5" fill="#bae6fd" fill-opacity="0.7" />
+  <circle cx="1370" cy="290" r="1.1" fill="#f5d0fe" fill-opacity="0.55" />
+  <circle cx="1160" cy="310" r="1.4" fill="#93c5fd" fill-opacity="0.6" />
+  <circle cx="670" cy="260" r="1.2" fill="#c4b5fd" fill-opacity="0.5" />
+
+  <!-- Era Meteor Shower trails across upper sky -->
+  <g stroke-linecap="round">
+    <line x1="760" y1="80" x2="1080" y2="275" stroke="url(#meteorCyan)" stroke-width="2.5" />
+    <circle cx="1080" cy="275" r="4" fill="#e0f2fe" />
+    <circle cx="1080" cy="275" r="11" fill="#38bdf8" fill-opacity="0.35" />
+
+    <line x1="980" y1="60" x2="1270" y2="235" stroke="url(#meteorViolet)" stroke-width="2.2" />
+    <circle cx="1270" cy="235" r="3.5" fill="#fae8ff" />
+    <circle cx="1270" cy="235" r="10" fill="#e879f9" fill-opacity="0.32" />
+
+    <line x1="1120" y1="145" x2="1430" y2="332" stroke="url(#meteorCyan)" stroke-width="2.8" />
+    <circle cx="1430" cy="332" r="4.5" fill="#ffffff" />
+    <circle cx="1430" cy="332" r="14" fill="#60a5fa" fill-opacity="0.38" />
+
+    <line x1="880" y1="185" x2="1140" y2="342" stroke="url(#meteorViolet)" stroke-width="1.8" />
+    <circle cx="1140" cy="342" r="3" fill="#f5d0fe" />
+
+    <line x1="1260" y1="75" x2="1495" y2="215" stroke="url(#meteorCyan)" stroke-width="1.6" />
+    <circle cx="1495" cy="215" r="2.8" fill="#e0f2fe" />
+  </g>
+
+  <!-- Soft twilight clouds & horizon hills -->
+  <path d="M-40 620 C260 560, 560 660, 920 595 C1210 542, 1430 610, 1660 560 L1660 920 L-40 920 Z" fill="url(#ridgeBack)" fill-opacity="0.72" />
+  <path d="M-40 735 C310 680, 620 770, 980 705 C1250 658, 1460 725, 1660 685 L1660 920 L-40 920 Z" fill="url(#ridgeFront)" />
+
+  <!-- Glowing Blue-Moon Weed (蒼月草) blossoms on the lower right meadow -->
+  <g>
+    <!-- Stems -->
+    <path d="M980 860 Q992 785 1010 742" stroke="#1e3a8a" stroke-width="2" />
+    <path d="M1070 870 Q1062 795 1045 752" stroke="#312e81" stroke-width="2" />
+    <path d="M1160 865 Q1174 780 1192 732" stroke="#1e3a8a" stroke-width="2.2" />
+    <path d="M1265 875 Q1258 790 1244 748" stroke="#312e81" stroke-width="2" />
+    <path d="M1355 865 Q1370 785 1390 735" stroke="#1e3a8a" stroke-width="2.2" />
+    <path d="M1445 875 Q1435 805 1425 765" stroke="#312e81" stroke-width="1.8" />
+
+    <!-- Luminous Flower Halos -->
+    <circle cx="1010" cy="738" r="24" fill="#38bdf8" fill-opacity="0.22" />
+    <circle cx="1045" cy="748" r="20" fill="#a855f7" fill-opacity="0.2" />
+    <circle cx="1192" cy="728" r="28" fill="#60a5fa" fill-opacity="0.24" />
+    <circle cx="1244" cy="744" r="22" fill="#38bdf8" fill-opacity="0.22" />
+    <circle cx="1390" cy="732" r="26" fill="#c084fc" fill-opacity="0.22" />
+    <circle cx="1425" cy="762" r="18" fill="#38bdf8" fill-opacity="0.2" />
+
+    <!-- Stylized 4-petal Blue-Moon Blossoms -->
+    <g fill="#bae6fd" fill-opacity="0.88">
+      <ellipse cx="1010" cy="730" rx="4" ry="9" />
+      <ellipse cx="1010" cy="746" rx="4" ry="9" />
+      <ellipse cx="1002" cy="738" rx="9" ry="4" />
+      <ellipse cx="1018" cy="738" rx="9" ry="4" />
+
+      <ellipse cx="1192" cy="719" rx="4.5" ry="10" />
+      <ellipse cx="1192" cy="737" rx="4.5" ry="10" />
+      <ellipse cx="1183" cy="728" rx="10" ry="4.5" />
+      <ellipse cx="1201" cy="728" rx="10" ry="4.5" />
+
+      <ellipse cx="1244" cy="737" rx="3.8" ry="8" />
+      <ellipse cx="1244" cy="751" rx="3.8" ry="8" />
+      <ellipse cx="1237" cy="744" rx="8" ry="3.8" />
+      <ellipse cx="1251" cy="744" rx="8" ry="3.8" />
+
+      <ellipse cx="1390" cy="724" rx="4" ry="9" fill="#e9d5ff" />
+      <ellipse cx="1390" cy="740" rx="4" ry="9" fill="#e9d5ff" />
+      <ellipse cx="1382" cy="732" rx="9" ry="4" fill="#e9d5ff" />
+      <ellipse cx="1398" cy="732" rx="9" ry="4" fill="#e9d5ff" />
+    </g>
+
+    <!-- Floating mana light motes -->
+    <circle cx="965" cy="690" r="2" fill="#7dd3fc" fill-opacity="0.7" />
+    <circle cx="1110" cy="675" r="2.2" fill="#e879f9" fill-opacity="0.65" />
+    <circle cx="1285" cy="660" r="1.8" fill="#bae6fd" fill-opacity="0.75" />
+    <circle cx="1340" cy="705" r="1.5" fill="#c084fc" fill-opacity="0.7" />
+    <circle cx="1470" cy="680" r="2" fill="#7dd3fc" fill-opacity="0.65" />
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#090d1a" />
+      <stop offset="55%" stop-color="#131636" />
+      <stop offset="100%" stop-color="#221042" />
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="140" y1="225" x2="660" y2="225" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" stroke="#94a3b8" stroke-opacity="0.08" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)" />
+  <rect width="800" height="450" fill="url(#grid)" />
+
+  <!-- Ambient glows -->
+  <circle cx="210" cy="140" r="180" fill="#3b82f6" fill-opacity="0.16" />
+  <circle cx="600" cy="310" r="200" fill="#8b5cf6" fill-opacity="0.18" />
+
+  <!-- Distributed worker pipeline nodes -->
+  <path d="M220 225 H365 M435 225 L540 135 M435 225 H540 M435 225 L540 315" stroke="url(#lineGrad)" stroke-width="2.5" stroke-dasharray="6 4" />
+
+  <!-- Producer -->
+  <rect x="96" y="185" width="124" height="80" rx="14" fill="#0f172a" fill-opacity="0.9" stroke="#60a5fa" stroke-width="1.5" />
+  <text x="158" y="220" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" fill="#93c5fd">OUTBOX</text>
+  <text x="158" y="240" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#64748b">PostgreSQL</text>
+
+  <!-- Stream Broker -->
+  <rect x="330" y="175" width="140" height="100" rx="16" fill="#1e1b4b" fill-opacity="0.92" stroke="#818cf8" stroke-width="1.75" />
+  <text x="400" y="218" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#e0e7ff">STREAMS</text>
+  <text x="400" y="238" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#a5b4fc">12k jobs / min</text>
+
+  <!-- Workers -->
+  <rect x="540" y="100" width="160" height="66" rx="12" fill="#18122b" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.5" />
+  <text x="620" y="130" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#e9d5ff">WORKER-01</text>
+  <text x="620" y="148" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#a855f7">lease active</text>
+
+  <rect x="540" y="192" width="160" height="66" rx="12" fill="#18122b" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.5" />
+  <text x="620" y="222" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#e9d5ff">WORKER-02</text>
+  <text x="620" y="240" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#a855f7">38ms p99</text>
+
+  <rect x="540" y="284" width="160" height="66" rx="12" fill="#18122b" fill-opacity="0.9" stroke="#c084fc" stroke-width="1.5" />
+  <text x="620" y="314" text-anchor="middle" font-family="ui-monospace, monospace" font-size="11" fill="#e9d5ff">DLQ-REAPER</text>
+  <text x="620" y="332" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#a855f7">0 lost jobs</text>
+</svg>

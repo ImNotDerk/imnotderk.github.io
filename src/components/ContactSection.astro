@@ -1,0 +1,99 @@
+---
+import { profile } from '../data/portfolio';
+import { withBase } from '../utils/paths';
+---
+
+<section id="contact" class="parallax-wrap cyber-scan relative overflow-clip py-28 sm:py-36">
+  <!-- Ambient Parallax Closing Still Faded Into Canvas Top & Bottom -->
+  <img
+    src={withBase(profile.backdrops.contactFrieren)}
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+    width="1920"
+    height="1080"
+    class="backdrop-frieren parallax-layer pointer-events-none absolute inset-0 h-full w-full select-none object-cover opacity-35"
+  />
+  <img
+    src={withBase(profile.backdrops.contactCyberzone)}
+    alt=""
+    aria-hidden="true"
+    loading="lazy"
+    width="1920"
+    height="1080"
+    class="backdrop-cyberzone parallax-layer pointer-events-none absolute inset-0 h-full w-full select-none object-cover opacity-35"
+  />
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0"
+    style="background: linear-gradient(180deg, var(--bg-canvas) 0%, color-mix(in srgb, var(--bg-canvas) 62%, transparent) 50%, var(--bg-canvas) 100%);"
+  >
+  </div>
+
+  <div data-reveal class="relative z-10 mx-auto max-w-2xl px-6 text-center">
+    <h2 class="font-display text-4xl font-bold tracking-tight text-[var(--text-primary)] sm:text-6xl">
+      {profile.contactHeading}<span class="text-[var(--accent)]">.</span>
+    </h2>
+
+    <p class="mt-4 text-base text-[var(--text-secondary)] sm:text-lg">
+      {profile.contactBlurb}
+    </p>
+
+    <div class="mt-8 flex justify-center">
+      <button
+        type="button"
+        data-copy-email={profile.email}
+        class="link-editorial font-mono text-base sm:text-lg"
+      >
+        <span class="text-[var(--text-primary)]">{profile.email}</span>
+        <span
+          data-copy-label
+          class="ml-2 font-mono text-xs uppercase tracking-wider text-[var(--accent)]"
+        >
+          [ copy ]
+        </span>
+        <span class="sr-only" aria-live="polite" data-copy-status></span>
+      </button>
+    </div>
+
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm">
+      {
+        profile.socials
+          .filter((social) => social.kind !== 'email')
+          .map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="nav-editorial"
+            >
+              {social.label} &nearr;
+            </a>
+          ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const copyBtn = document.querySelector<HTMLButtonElement>('[data-copy-email]');
+  const labelEl = copyBtn?.querySelector<HTMLElement>('[data-copy-label]');
+  const statusEl = copyBtn?.querySelector<HTMLElement>('[data-copy-status]');
+
+  copyBtn?.addEventListener('click', async () => {
+    const email = copyBtn.dataset.copyEmail;
+    if (!email || !labelEl) return;
+
+    try {
+      await navigator.clipboard.writeText(email);
+      labelEl.textContent = '[ copied! ]';
+      if (statusEl) statusEl.textContent = `Copied ${email} to clipboard`;
+      window.setTimeout(() => {
+        labelEl.textContent = '[ copy ]';
+        if (statusEl) statusEl.textContent = '';
+      }, 2200);
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  });
+</script>

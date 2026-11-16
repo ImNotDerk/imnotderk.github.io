@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="csVoid" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#02030a" />
+      <stop offset="52%" stop-color="#070b20" />
+      <stop offset="100%" stop-color="#1a0936" />
+    </linearGradient>
+    <radialGradient id="csCyanGlow" cx="76%" cy="38%" r="50%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.3" />
+      <stop offset="48%" stop-color="#4f46e5" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#02030a" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="csMagentaGlow" cx="84%" cy="74%" r="45%">
+      <stop offset="0%" stop-color="#e879f9" stop-opacity="0.28" />
+      <stop offset="55%" stop-color="#6366f1" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#02030a" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="csBeamCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0" />
+      <stop offset="65%" stop-color="#00e5ff" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#e0f2fe" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="csBeamMagenta" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e879f9" stop-opacity="0" />
+      <stop offset="65%" stop-color="#e879f9" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#fae8ff" stop-opacity="0.95" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#csVoid)" />
+  <rect width="1600" height="900" fill="url(#csCyanGlow)" />
+  <rect width="1600" height="900" fill="url(#csMagentaGlow)" />
+
+  <!-- HUD telemetry coordinate lines & targeting reticle (upper right) -->
+  <g stroke="#00e5ff" stroke-opacity="0.18" stroke-width="1">
+    <line x1="780" y1="260" x2="1520" y2="260" stroke-dasharray="4 8" />
+    <line x1="1260" y1="70" x2="1260" y2="540" stroke-dasharray="4 8" />
+    <circle cx="1260" cy="260" r="145" />
+    <circle cx="1260" cy="260" r="92" stroke="#e879f9" stroke-opacity="0.22" stroke-dasharray="8 6" />
+    <path d="M1195 195 H1215 M1195 195 V215 M1325 195 H1305 M1325 195 V215 M1195 325 H1215 M1195 325 V305 M1325 325 H1305 M1325 325 V305" stroke="#00e5ff" stroke-opacity="0.45" stroke-width="1.5" />
+  </g>
+
+  <!-- Diagonal electric cyan & neon magenta data beams -->
+  <g stroke-linecap="square">
+    <line x1="840" y1="80" x2="1210" y2="295" stroke="url(#csBeamCyan)" stroke-width="2" />
+    <line x1="940" y1="45" x2="1380" y2="300" stroke="url(#csBeamMagenta)" stroke-width="1.8" />
+    <line x1="1080" y1="120" x2="1510" y2="370" stroke="url(#csBeamCyan)" stroke-width="2.4" />
+  </g>
+
+  <!-- Geometric neon-edged skyline monoliths & isometric data towers on the right horizon -->
+  <g>
+    <rect x="930" y="540" width="68" height="360" fill="#070a1d" stroke="#00e5ff" stroke-opacity="0.28" stroke-width="1.2" />
+    <rect x="1012" y="455" width="84" height="445" fill="#090d24" stroke="#6366f1" stroke-opacity="0.34" stroke-width="1.2" />
+    <line x1="1032" y1="490" x2="1076" y2="490" stroke="#00e5ff" stroke-opacity="0.6" stroke-width="2" />
+    <line x1="1032" y1="510" x2="1076" y2="510" stroke="#00e5ff" stroke-opacity="0.35" stroke-width="1.5" />
+    <line x1="1032" y1="530" x2="1076" y2="530" stroke="#e879f9" stroke-opacity="0.45" stroke-width="1.5" />
+
+    <rect x="1114" y="385" width="96" height="515" fill="#080b20" stroke="#e879f9" stroke-opacity="0.36" stroke-width="1.4" />
+    <line x1="1162" y1="335" x2="1162" y2="385" stroke="#e879f9" stroke-opacity="0.6" stroke-width="1.5" />
+    <circle cx="1162" cy="332" r="3" fill="#00e5ff" />
+    <rect x="1132" y="415" width="60" height="8" fill="#00e5ff" fill-opacity="0.28" />
+    <rect x="1132" y="438" width="60" height="8" fill="#e879f9" fill-opacity="0.24" />
+    <rect x="1132" y="461" width="42" height="8" fill="#00e5ff" fill-opacity="0.2" />
+
+    <rect x="1228" y="490" width="76" height="410" fill="#060919" stroke="#00e5ff" stroke-opacity="0.3" stroke-width="1.2" />
+    <rect x="1320" y="425" width="90" height="475" fill="#090d24" stroke="#00e5ff" stroke-opacity="0.38" stroke-width="1.4" />
+    <line x1="1340" y1="455" x2="1390" y2="455" stroke="#e879f9" stroke-opacity="0.55" stroke-width="2" />
+    <line x1="1340" y1="475" x2="1390" y2="475" stroke="#00e5ff" stroke-opacity="0.45" stroke-width="1.5" />
+
+    <rect x="1426" y="530" width="74" height="370" fill="#070a1c" stroke="#e879f9" stroke-opacity="0.28" stroke-width="1.2" />
+  </g>
+
+  <!-- Glowing circuit traces on lower horizon -->
+  <g stroke-width="1.5">
+    <path d="M760 820 H980 L1025 775 H1240 L1275 810 H1540" stroke="#00e5ff" stroke-opacity="0.35" />
+    <path d="M840 855 H1080 L1115 820 H1360 L1395 845 H1560" stroke="#e879f9" stroke-opacity="0.3" />
+    <circle cx="980" cy="820" r="3" fill="#00e5ff" fill-opacity="0.7" />
+    <circle cx="1240" cy="775" r="3" fill="#00e5ff" fill-opacity="0.7" />
+    <circle cx="1115" cy="820" r="3" fill="#e879f9" fill-opacity="0.7" />
+  </g>
+</svg>
