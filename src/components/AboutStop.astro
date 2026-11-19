@@ -80,24 +80,14 @@ const cliPayload = {
               class="parallax-layer h-full w-full object-cover"
             />
           ) : (
-            <>
-              <img
-                src={withBase(profile.backdrops.aboutFrieren)}
-                alt="Sousou no Frieren flower meadow scenic frame"
-                loading="lazy"
-                width="1920"
-                height="1080"
-                class="backdrop-frieren parallax-layer h-full w-full object-cover"
-              />
-              <img
-                src={withBase(profile.backdrops.aboutCyberzone)}
-                alt="Cyberpunk rainy street neon scenic frame"
-                loading="lazy"
-                width="1920"
-                height="1080"
-                class="backdrop-cyberzone parallax-layer h-full w-full object-cover"
-              />
-            </>
+            <img
+              src={withBase(profile.backdrops.aboutCyberzone)}
+              alt="Cyberpunk rainy street neon scenic frame"
+              loading="lazy"
+              width="1920"
+              height="1080"
+              class="backdrop-cyberzone parallax-layer h-full w-full object-cover"
+            />
           )
         }
       </div>
