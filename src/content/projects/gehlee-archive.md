@@ -1,7 +1,7 @@
 ---
 title: "Gehlee's Memory Box"
 summary: "High-performance fan archive, media portal, and private admin CMS featuring automated multi-platform sync pipelines, zero-cost edge hosting, and strict Row-Level Security."
-role: "Lead Full-Stack Engineer"
+role: "Full-Stack Engineer"
 period: "2026"
 featured: true
 order: 1
@@ -19,15 +19,15 @@ stack:
   - "Cloudflare R2"
   - "Docker"
   - "Playwright"
-liveUrl: "https://www.gehlee-archive.pink"
-architectureSummary: "Zero-cost edge fan archive and admin CMS: Next.js 16 App Router on Vercel with Supabase PostgreSQL (pgTAP-tested RLS), Cloudflare R2 media storage via S3 API, and daily automated ingestion pipelines for YouTube, TikTok, X, and Facebook running inside a ₱0/month free-tier envelope."
-coverImage: "/images/projects/gehlee-archive.png"
-coverAlt: "Gehlee's Memory Box web application interface displaying polaroid gallery, live music tracker, and fanbase bulletin"
+liveUrl: "https://www.gehlee-archive.pink/"
+architectureSummary: "Zero-cost edge fan archive and admin CMS built by a 2-developer team: Next.js 16 App Router on Vercel with Supabase PostgreSQL (pgTAP-tested RLS), Cloudflare R2 media storage via S3 API, and daily automated ingestion pipelines for YouTube, TikTok, X, and Facebook running inside a ₱0/month free-tier envelope."
+coverImage: "/images/projects/gehlee-archive.jpg"
+coverAlt: "Gehlee's Memory Box hero section featuring Gehlee Dangca and Closer Official Music Video"
 ---
 
 ## Overview
 
-**Gehlee's Memory Box** is an all-in-one fan archive and digital portal celebrating Gehlee Dangca. It brings together a categorized media library, interactive polaroid gallery with custom crop tools, music release tracker, fanbase community bulletin, and social hub—backed by a private administrative CMS.
+Built by a two-developer engineering team, **Gehlee's Memory Box** is an all-in-one fan archive and digital portal celebrating Gehlee Dangca. It brings together a categorized media library, interactive polaroid gallery with custom crop tools, music release tracker, fanbase community bulletin, and social hub—backed by a private administrative CMS.
 
 ## Architecture & System Guarantees
 

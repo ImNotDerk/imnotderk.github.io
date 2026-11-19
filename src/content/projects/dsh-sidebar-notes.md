@@ -16,8 +16,6 @@ stack:
   - "Cordis"
   - "DeepSeek Harness SDK"
   - "CSS Tokens"
-repoUrl: "https://github.com/ImNotDerk/dsh-sidebar-notes"
-liveUrl: "https://www.npmjs.com/package/dsh-sidebar-notes"
 architectureSummary: "Two-half Cordis bundle: a Node.js Host store that serializes bounded JSON mutations via atomic temp-file renames, and a zero-dependency React client that derives 9 sticky-note skins from active host semantic tokens via CSS color-mix()."
 coverImage: "/images/projects/dsh-notes-dark.png"
 coverAlt: "dsh-sidebar-notes sticky notes board running inside the DeepSeek Harness Web UI"

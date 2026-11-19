@@ -17,6 +17,7 @@ const {
   stack,
   coverImage,
   coverAlt,
+  liveUrl,
 } = project.data;
 const indexLabel = String(index + 1).padStart(2, '0');
 ---
@@ -27,16 +28,35 @@ const indexLabel = String(index + 1).padStart(2, '0');
 >
   <!-- Visual Column (alternates left/right on desktop) -->
   <div class:list={['lg:col-span-7', index % 2 === 1 && 'lg:order-2']}>
-    <div
-      class="parallax-wrap cyber-scan block aspect-video w-full overflow-clip rounded-3xl border border-[var(--border-hairline)] bg-[var(--bg-subtle)]"
-    >
-      <img
-        src={withBase(coverImage)}
-        alt={coverAlt}
-        class="h-full w-full object-cover"
-        loading="lazy"
-      />
-    </div>
+    {
+      liveUrl ? (
+        <a
+          href={liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open live site for ${title}`}
+          class="parallax-wrap cyber-scan group block aspect-video w-full overflow-clip rounded-3xl border border-[var(--border-hairline)] bg-[var(--bg-subtle)] transition-all duration-300 hover:border-[var(--accent)]"
+        >
+          <img
+            src={withBase(coverImage)}
+            alt={coverAlt}
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            loading="lazy"
+          />
+        </a>
+      ) : (
+        <div
+          class="parallax-wrap cyber-scan block aspect-video w-full overflow-clip rounded-3xl border border-[var(--border-hairline)] bg-[var(--bg-subtle)]"
+        >
+          <img
+            src={withBase(coverImage)}
+            alt={coverAlt}
+            class="h-full w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
   </div>
 
   <!-- Minimal Narrative Column -->
@@ -48,7 +68,21 @@ const indexLabel = String(index + 1).padStart(2, '0');
     <h3
       class="font-display mt-3 text-2xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl"
     >
-      {title}
+      {
+        liveUrl ? (
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center gap-2 transition-colors hover:text-[var(--accent)]"
+          >
+            <span>{title}</span>
+            <span aria-hidden="true" class="arrow-diag font-mono text-xl text-[var(--accent)] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">&nearr;</span>
+          </a>
+        ) : (
+          title
+        )
+      }
     </h3>
 
     <p class="mt-3 text-base leading-relaxed text-[var(--text-secondary)]">
@@ -71,5 +105,21 @@ const indexLabel = String(index + 1).padStart(2, '0');
     <p class="mt-3 font-mono text-xs text-[var(--text-muted)]">
       {stack.slice(0, 4).join(' / ')}
     </p>
+
+    {
+      liveUrl && (
+        <div class="mt-5">
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-editorial font-mono text-xs uppercase tracking-wider text-[var(--accent)]"
+          >
+            <span>Visit live site</span>
+            <span aria-hidden="true" class="arrow-diag">&nearr;</span>
+          </a>
+        </div>
+      )
+    }
   </div>
 </article>
