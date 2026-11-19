@@ -30,8 +30,15 @@ const projects = (await getCollection('projects'))
       </h2>
     </div>
 
-    <div class="mt-8 divide-y divide-[var(--border-hairline)]">
-      {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+    <div class="mt-8">
+      {
+        projects.map((project, index) => (
+          <div>
+            <ProjectCard project={project} index={index} />
+            <div class="project-separator" aria-hidden="true" />
+          </div>
+        ))
+      }
     </div>
   </section>
 

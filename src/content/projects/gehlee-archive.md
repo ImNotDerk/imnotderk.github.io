@@ -21,8 +21,8 @@ stack:
   - "Playwright"
 liveUrl: "https://www.gehlee-archive.pink"
 architectureSummary: "Zero-cost edge fan archive and admin CMS: Next.js 16 App Router on Vercel with Supabase PostgreSQL (pgTAP-tested RLS), Cloudflare R2 media storage via S3 API, and daily automated ingestion pipelines for YouTube, TikTok, X, and Facebook running inside a ₱0/month free-tier envelope."
-coverImage: "/images/projects/gehlee-archive-cover.svg"
-coverAlt: "Gehlee's Memory Box architecture diagram showing automated sync pipelines, Supabase RLS, and Cloudflare R2 storage"
+coverImage: "/images/projects/gehlee-archive.png"
+coverAlt: "Gehlee's Memory Box web application interface displaying polaroid gallery, live music tracker, and fanbase bulletin"
 ---
 
 ## Overview
