@@ -4,7 +4,7 @@ summary: "AI-powered chatbot that teaches scientific concepts to Grade 3 student
 role: "Full-Stack Developer"
 period: "2024 — 2026"
 featured: true
-order: 6
+order: 7
 metrics:
   - "Grade 3 storytelling AI tutor"
   - "Google Vertex AI / Gemini integration"

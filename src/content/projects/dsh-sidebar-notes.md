@@ -4,7 +4,7 @@ summary: "Theme-adaptive Todo list and Sticky-Note board plugin for the DeepSeek
 role: "Creator & Open-Source Maintainer"
 period: "2026"
 featured: true
-order: 1
+order: 2
 metrics:
   - "Published on npm (v0.1.1)"
   - "3 AI agent tools · 0 runtime deps"

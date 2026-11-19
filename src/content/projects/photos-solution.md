@@ -4,7 +4,7 @@ summary: "Local iPhone photo triage and cryptographically verified backup system
 role: "Creator & Systems Engineer"
 period: "2026"
 featured: true
-order: 2
+order: 3
 metrics:
   - "SHA-256 + byte-verified before delete"
   - "Swift 6 PhotoKit + Fastify streaming"

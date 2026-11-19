@@ -4,7 +4,7 @@ summary: "AI-first organizational knowledge engine that ingests documents, enfor
 role: "Co-Founder & Full-Stack Engineer"
 period: "2026"
 featured: true
-order: 4
+order: 5
 metrics:
   - "Hybrid search (Cosine + BM25 re-rank)"
   - "Permission-enforced retrieval layer"

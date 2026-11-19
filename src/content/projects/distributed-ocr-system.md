@@ -4,7 +4,7 @@ summary: "Multi-threaded C++ optical character recognition pipeline using bidire
 role: "Systems Developer"
 period: "2025"
 featured: true
-order: 7
+order: 8
 metrics:
   - "Bidirectional gRPC streaming"
   - "Hardware-scaled C++ thread pool"

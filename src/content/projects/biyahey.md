@@ -4,7 +4,7 @@ summary: "Top 16 Finalist (out of 53 teams) at Developer Camp Manila 2026: unifi
 role: "Full-Stack Developer"
 period: "March 2026"
 featured: true
-order: 5
+order: 6
 metrics:
   - "Top 16 Finalist (out of 53 teams)"
   - "48-hour Developer Camp Manila 2026 MVP"

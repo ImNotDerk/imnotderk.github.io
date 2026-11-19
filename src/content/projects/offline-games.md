@@ -4,7 +4,7 @@ summary: "Ultra-low-power, zero-dependency offline game suite and studio written
 role: "Creator & Systems Engineer"
 period: "2026"
 featured: true
-order: 3
+order: 4
 metrics:
   - "63 KB pure Rust WASM · 0 crates"
   - "0.02–0.05 ms tick · 0.0% idle CPU"
